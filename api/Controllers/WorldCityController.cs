@@ -20,7 +20,7 @@ namespace api.Controllers
     [HttpGet]
     public IActionResult GetAll()
     {
-      var worldCities = _context.WorldCities.Select(worldCity => worldCity.ToWorldCityDto()).ToList().OrderBy(worldCity => worldCity.Population);
+      var worldCities = _context.WorldCities.Select(worldCity => worldCity.ToWorldCityDto()).ToList().OrderByDescending(worldCity => worldCity.Population);
 
       return Ok(worldCities);
     }
